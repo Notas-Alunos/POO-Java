@@ -1,21 +1,48 @@
 package com.mycompany.pessoa;
+//pessoa
+public class Pessoa {
+    protected String nome;
+    protected String endereco;
 
-public class Main {
-    public static void main(String[] args) {
-        Pessoa pessoa = new Pessoa("Empresa X", "Av. Central");
-        pessoa.apresentar();
+    public Pessoa(String nome, String endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+    }
+
+    public void apresentar() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Endereço: " + endereco);
+    }
+
+  //pessoa juridica
+    public class PessoaJuridica {
+        private String cnpj;
+        private String razaoSocial;
         
-        Pessoa.PessoaJuridica pj = pessoa.new PessoaJuridica("12.345.678/0001-99", "Empresa X Ltda");
-        pj.apresentarJuridica();
+        public PessoaJuridica(String cnpj, String razaoSocial) {
+            this.cnpj = cnpj;
+            this.razaoSocial = razaoSocial;  
+        }
 
-        pj.setCnpj("98.765.432/0001-00");
-        pj.setRazaoSocial("Nova Empresa S.A.");
-        
-        System.out.println("\n--- Dados Atualizados ---");
-        System.out.println("Novo CNPJ: " + pj.getCnpj());
-        System.out.println("Nova Razão Social: " + pj.getRazaoSocial());
+        public String getCnpj() {
+            return cnpj;
+        }
 
-        System.out.println("\n--- Apresentação atualizada ---");
-        pj.apresentarJuridica();
+        public void setCnpj(String cnpj) {
+            this.cnpj = cnpj;
+        }
+
+        public String getRazaoSocial() {
+            return razaoSocial;
+        }
+
+        public void setRazaoSocial(String razaoSocial) {
+            this.razaoSocial = razaoSocial;
+        }
+
+        public void apresentarJuridica() {
+            System.out.println("Razão Social: " + razaoSocial);
+            System.out.println("CNPJ: " + cnpj);
+        }
     }
 }
